@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -16,7 +17,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,7 +27,11 @@ export const Navbar = () => {
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        isMenuOpen
+          ? "h-100 bg-background/80 backdrop-blur-md shadow-sm"
+          : isScrolled
+          ? "py-5 bg-background/80 backdrop-blur-md shadow-sm"
+          : "py-5 bg-background"
       )}
     >
       <div className="container flex items-center justify-between">
@@ -35,12 +40,12 @@ export const Navbar = () => {
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> codewithathar </span>{" "}
+            <span className="text-glow text-foreground">codewithathar</span>{" "}
             Portfolio
           </span>
         </a>
 
-        {/* desktop nav */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
             <a
@@ -51,21 +56,32 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+          <ThemeToggle />
         </div>
 
-        {/* mobile nav */}
-
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
+          className="md:hidden p-2 text-foreground z-50 "
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          {isMenuOpen ? (
+            <X
+              size={34}
+              className="border border-primary text-primary p-1 rounded-md mt-3"
+            />
+          ) : (
+            <Menu
+              size={34}
+              className="border border-primary p-1 rounded-md text-primary"
+            />
+          )}
         </button>
 
+        {/* Mobile Menu */}
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
