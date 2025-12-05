@@ -54,7 +54,7 @@ export const ContactSection = () => {
                   <Mail className="h-6 w-6 text-primary" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Email</h4>
+                  <h4 className="font-medium text-left"> Email</h4>
                   <a
                     href="mailto:hello@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -68,7 +68,7 @@ export const ContactSection = () => {
                   <Phone className="h-6 w-6 text-primary" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium text-left"> Phone</h4>
                   <a
                     href="tel:+11234567890"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -82,7 +82,7 @@ export const ContactSection = () => {
                   <MapPin className="h-6 w-6 text-primary" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
+                  <h4 className="font-medium text-left"> Location</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
                     lahore Pakistan
                   </a>
@@ -90,9 +90,9 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="pt-8">
+            <div className="pt-8 border-t border-border text-center text-left">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
+              <div className="flex space-x-6 justify-start">
                 <a href="#" target="_blank">
                   <Linkedin />
                 </a>
@@ -119,9 +119,8 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-left"
                 >
-                  {" "}
                   Your Name
                 </label>
                 <input
@@ -137,9 +136,8 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-left"
                 >
-                  {" "}
                   Your Email
                 </label>
                 <input
@@ -155,9 +153,8 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-left"
                 >
-                  {" "}
                   Your Message
                 </label>
                 <textarea
